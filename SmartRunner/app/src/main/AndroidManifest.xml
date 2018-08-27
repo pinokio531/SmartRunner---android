@@ -10,6 +10,12 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,9 +32,23 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme"></activity>
+
+        <activity android:name=".Login"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity android:name=".Register"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity android:name=".Permission"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity android:name=".setting_listview.Instruction"></activity>
+        <activity android:name=".setting_listview.Logout"></activity>
+        <activity android:name=".setting_listview.Warning"></activity>
+        <activity android:name=".setting_listview.location.location_settings"></activity>
+        <activity android:name=".music.MusicActivity"></activity>
     </application>
 
 </manifest>

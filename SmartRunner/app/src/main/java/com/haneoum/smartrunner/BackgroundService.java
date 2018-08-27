@@ -19,7 +19,6 @@ public class BackgroundService extends Service {
     private static final String TAG = "BackgroundService";
     private Toast mToast;
 
-
     private DeviceListener mListener = new AbstractDeviceListener() {
         @Override
         public void onConnect(Myo myo, long timestamp) {

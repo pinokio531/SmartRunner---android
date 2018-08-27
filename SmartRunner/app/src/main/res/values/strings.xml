@@ -3,8 +3,8 @@
     <string name="arm_left">왼손 착용</string>
     <string name="arm_right">오른손 착용</string>
     <string name="hello_world">HELLOW_WORLD</string>
-    <string name="unlocked">UNLOCKED</string>
-    <string name="locked">LOCKED</string>
+    <string name="unlocked">활성 상태</string>
+    <string name="locked">비활성 상태</string>
 
     <string name="pose_fist">주먹쥐기</string>
     <string name="pose_wavein">손바닥으로 치기!</string>

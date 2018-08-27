@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
@@ -16,14 +15,19 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
 
+
+
         if (ContextCompat.checkSelfPermission(Splash.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+            WaitingTime("Permission.class");
+        }
+        else{
+            WaitingTime("Login.class");
         }
 
-        WaitingTime();
     }
 
-    private void WaitingTime() {
+    public void WaitingTime(final String className) {
+
         Thread SplashThread = new Thread() {
             @Override
             public void run() {
@@ -33,9 +37,7 @@ public class Splash extends AppCompatActivity {
                         sleep(100);
                         wait += 100;
                     }
-                    Intent intent = new Intent(Splash.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    whichClass(className);
                 } catch (InterruptedException e) {
 
                 }
@@ -43,5 +45,22 @@ public class Splash extends AppCompatActivity {
 
         };
         SplashThread.start();
+    }
+
+    public void whichClass(String clsName){
+        Intent intent;
+        switch (clsName) {
+            case "Permission.class":
+                intent = new Intent(this, Permission.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case "Login.class":
+                intent = new Intent(this, Login.class);
+                startActivity(intent);
+                finish();
+                break;
+        }
     }
 }

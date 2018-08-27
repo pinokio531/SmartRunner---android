@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/id_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="18dp"
+        android:text="ID"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/pw_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/id_view"
+        android:layout_below="@+id/id_view"
+        android:text="PW"
+        android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/inputPW"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/id_view"
+        android:layout_marginEnd="42dp"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/inputPW"
+        android:layout_marginTop="18dp"
+        android:text="로그인" />
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_signin"
+        android:layout_centerHorizontal="true"
+        android:onClick="CliSignUp"
+        android:text="회원가입" />
+
+    <EditText
+        android:id="@+id/inputID"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/inputPW"
+        android:layout_alignTop="@+id/id_view"
+        android:ems="10"
+        android:hint="email@input.com"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="228dp"
+        android:text="TextView" />
+
+
+</RelativeLayout>

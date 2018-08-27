@@ -2,6 +2,7 @@ package com.haneoum.smartrunner;
 
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,8 +25,12 @@ import com.thalmic.myo.XDirection;
 
 public class Monitoring extends Fragment {
 
+    MediaPlayer mediaPlayer;
     private TextView mLockStateView;
     private TextView mTextView;
+    private TextView vector_x;
+    private TextView vector_y;
+    private TextView vector_z;
 
     private DeviceListener mListener = new AbstractDeviceListener() {
 
@@ -63,7 +68,6 @@ public class Monitoring extends Fragment {
 
         @Override
         public void onOrientationData(Myo myo, long timestamp, Quaternion rotation) {
-
             float roll = (float) Math.toDegrees(Quaternion.roll(rotation));
             float pitch = (float) Math.toDegrees(Quaternion.pitch(rotation));
             float yaw = (float) Math.toDegrees(Quaternion.yaw(rotation));
@@ -72,6 +76,14 @@ public class Monitoring extends Fragment {
                 roll *= -1;
                 pitch *= -1;
             }
+
+            double x = rotation.x();
+            double y = rotation.y();
+            double z = rotation.z();
+
+            vector_x.setText(String.format("%.4f", x));
+            vector_y.setText(String.format("%.4f", y));
+            vector_z.setText(String.format("%.4f", z));
 
             mTextView.setRotation(roll);
             mTextView.setRotationX(pitch);
@@ -129,6 +141,9 @@ public class Monitoring extends Fragment {
         mLockStateView = (TextView) layout.findViewById(R.id.lock_state);
         mTextView = (TextView) layout.findViewById(R.id.test_TextView);
 
+        vector_x = (TextView) layout.findViewById(R.id.vectorX);
+        vector_y = (TextView) layout.findViewById(R.id.vectorY);
+        vector_z = (TextView) layout.findViewById(R.id.vectorZ);
 
         Hub hub = Hub.getInstance();
         if (!hub.init(getActivity(), getActivity().getPackageName())) {
