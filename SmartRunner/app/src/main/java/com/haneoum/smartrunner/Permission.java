@@ -29,7 +29,7 @@ public class Permission extends AppCompatActivity{
                 && ContextCompat.checkSelfPermission(Permission.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(Permission.this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(Permission.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-            startActivity(new Intent(Permission.this, Login.class));
+            startActivity(new Intent(Permission.this, MainActivity.class));
             finish();
         }
         else{

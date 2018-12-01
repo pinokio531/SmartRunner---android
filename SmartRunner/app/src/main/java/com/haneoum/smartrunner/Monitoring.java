@@ -25,7 +25,6 @@ import com.thalmic.myo.XDirection;
 
 public class Monitoring extends Fragment {
 
-    MediaPlayer mediaPlayer;
     private TextView mLockStateView;
     private TextView mTextView;
     private TextView vector_x;
@@ -77,11 +76,11 @@ public class Monitoring extends Fragment {
                 pitch *= -1;
             }
 
-            double x = rotation.x();
+            StaticValueX.x = rotation.x();
             double y = rotation.y();
             double z = rotation.z();
 
-            vector_x.setText(String.format("%.4f", x));
+            vector_x.setText(String.format("%.4f", StaticValueX.x));
             vector_y.setText(String.format("%.4f", y));
             vector_z.setText(String.format("%.4f", z));
 
@@ -137,6 +136,7 @@ public class Monitoring extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.fragment_monitoring, container, false);
+        StaticValueX.warningrun = true;
 
         mLockStateView = (TextView) layout.findViewById(R.id.lock_state);
         mTextView = (TextView) layout.findViewById(R.id.test_TextView);
@@ -151,6 +151,10 @@ public class Monitoring extends Fragment {
             getActivity().finish();
         }
         hub.addListener(mListener);
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(), R.raw.warn);
+        MediaPlayerThread mpt = new MediaPlayerThread(mediaPlayer);
+        mpt.start();
 
         return layout;
     }

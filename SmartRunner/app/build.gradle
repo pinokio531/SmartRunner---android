@@ -22,7 +22,7 @@ dependencies {
 
     repositories{
         maven{
-            url 'c:/Android/myo-android-sdk-0.10.0/myorepository'
+            url '/Users/sungminkim/Library/Android/myo-android-sdk-0.10.0/myorepository'
         }
     }
 

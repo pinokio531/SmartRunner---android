@@ -18,6 +18,14 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.haneoum.smartrunner.R;
+import com.thalmic.myo.Arm;
+import com.thalmic.myo.DeviceListener;
+import com.thalmic.myo.Hub;
+import com.thalmic.myo.Myo;
+import com.thalmic.myo.Pose;
+import com.thalmic.myo.Quaternion;
+import com.thalmic.myo.Vector3;
+import com.thalmic.myo.XDirection;
 
 import java.util.ArrayList;
 
@@ -202,5 +210,4 @@ public class MusicActivity extends FragmentActivity implements View.OnClickListe
             mediaPlayer = null;
         }
     }
-
 }

@@ -15,13 +15,11 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
 
-
-
         if (ContextCompat.checkSelfPermission(Splash.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_DENIED) {
             WaitingTime("Permission.class");
         }
         else{
-            WaitingTime("Login.class");
+            WaitingTime("MainActivity.class");
         }
 
     }
@@ -61,6 +59,12 @@ public class Splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 break;
+
+            case "MainActivity.class":
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                break; //test용
         }
     }
 }
